@@ -1,0 +1,31 @@
+{
+  "name": "rdb-migrate",
+  "version": "0.0.1",
+  "description": "A relational database migration management framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "psql",
+    "sql",
+    "database",
+    "schema",
+    "migration"
+  ],
+  "author": "austin brown <austin@azuqua.com> (http://www.azuqua.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "knex": "^0.12.3",
+    "lodash": "^4.16.4",
+    "yargs": "^6.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "mocha": "^3.1.0"
+  }
+}

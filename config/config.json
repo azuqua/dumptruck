@@ -1,0 +1,14 @@
+{
+  "dialect": "pg",
+  "debug": false,
+  "migrationsTable": "rdb_migrate",
+  "migrationsDir": "./migrations/",
+  "dumpDir": "./dump/",
+  "pg": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "pass": "",
+    "user": "rdb-migrate",
+    "database": "rdb-migrate"
+  }
+}

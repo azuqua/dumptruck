@@ -1,4 +1,6 @@
 
+> NB! This repository is currently WIP and as such is extremely unstable.
+
 # rdb-migrate
 
 An knexjs relational database framework that allows for **safe migrations** and **data schema scraping**

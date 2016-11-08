@@ -8,7 +8,7 @@
     "host": "127.0.0.1",
     "port": 5432,
     "pass": "",
-    "user": "rdb-migrate",
-    "database": "rdb-migrate"
+    "user": "hiram",
+    "database": "azuqua"
   }
 }

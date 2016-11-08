@@ -50,6 +50,7 @@ switch (argv.dialect) {
     clientPath = "lib/clients/postgres.js";
     break;
 }
+
 var client = require(path.resolve(__dirname, clientPath))(config);
 
 // build _argv

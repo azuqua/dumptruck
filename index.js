@@ -13,6 +13,7 @@ var Migration = require("./lib/Migration")
   , constants = require("./constants")
   , utils = require("./lib/utils");
 
+
 var _scriptMethods = constants.scriptMethods
   , _dumpFormats = constants.dumpFormats;
 
@@ -20,7 +21,6 @@ var argv
   , client;
 
 module.exports = function (_argv, cb) {
-
   // default the argv values
   argv = _argv;
   client = _argv.client;
@@ -168,7 +168,7 @@ function _dump() {
       return err;
     }
     , writeDump = function (result) {
-      return fs.writeFileAsync(path.resolve(__dirname, argv.out + "." + argv.format), result);
+      return fs.writeFileAsync(path.resolve(__dirname, './dump/' + argv.out + "." + argv.format), result);
     }
     , stringify = function (json) {
       return JSON.stringify(json, null, 2);

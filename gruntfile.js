@@ -13,7 +13,7 @@ module.exports = function (grunt) {
     mochaTest: {
       run: {
         options: {reporter: "spec", checkLeaks: true},
-        src: ["tests/*.js"]
+        src: ["test/*.js"]
       }
     },
 
@@ -34,4 +34,6 @@ module.exports = function (grunt) {
   grunt.registerTask("test", ["mochaTest:run"]);
 
   grunt.registerTask("default", ["lint", "test"]);
+
+  grunt.registerTask("test-dump-pg", ['mochaTest:run'])
 };

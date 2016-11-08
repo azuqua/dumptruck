@@ -1,6 +1,6 @@
 
 # local dump
-dump/dump.json
+dump/
 
 # local migrations
 migrations/

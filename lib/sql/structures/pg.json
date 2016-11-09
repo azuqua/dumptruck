@@ -1,0 +1,40 @@
+[{ 
+  "name": "columns",
+  "file": "columns"
+},
+{
+  "name": "constraints",
+  "file": "constraints"
+},
+{
+  "name": "database",
+  "file": "database"
+},
+{
+  "name": "extensions",
+  "file": "extensions"
+},
+{ 
+  "name": "indexes",
+  "file": "indexes"
+},
+{
+  "name": "primary_indexes",
+  "file": "primary_indexes_join"
+},
+{
+  "name": "schemas",
+  "file": "schemas"
+},
+{
+  "name": "sequences",
+  "file": "sequences_columns_join"
+},
+{
+  "name": "tables",
+  "file": "tables"
+},
+{
+  "name": "users",
+  "file": "users"
+}]

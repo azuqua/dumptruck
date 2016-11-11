@@ -49,6 +49,9 @@ switch (argv.dialect) {
   case "pg":
     clientPath = "lib/clients/postgres.js";
     break;
+  case "mysql":
+    clientPath = "lib/clients/mysql.js"
+    break;
 }
 
 var client = require(path.resolve(__dirname, clientPath))(config);

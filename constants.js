@@ -11,7 +11,8 @@ module.exports.scriptMethods = [
 ];
 
 module.exports.dialects = [
-  "pg"
+  "pg",
+  "mysql"
 ];
 
 module.exports.dumpFormats = [

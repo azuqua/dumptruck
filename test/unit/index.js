@@ -27,5 +27,13 @@ module.exports = function(client) {
           assert(data != null, "The file should exist");
         })
     });
+
+    it("get table metadata", function() {
+      
+    });
+    
+    it("test finding specific table", function() {
+      return dump.tableData(client, tableName)
+    });
   });
 };

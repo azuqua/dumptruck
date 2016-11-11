@@ -136,6 +136,43 @@ $ node rdb-migrate dump --configFile <pathToConfigFile-database1>
 }
 ```
 
+```json
+// dump file structure
+{
+  "tables": [
+    {
+      //table meta-data
+      "table": "table name",
+      "sequences": [
+        {
+          //sequences on table meta-data
+        }
+      ],
+      "columns": [
+        {
+          //columns on table meta-data
+        }
+      ],
+      "indexes": [
+        {
+          //index on table meta-data
+        }
+      ],
+      "primary": {
+        "columns": [
+          //columns in primary key
+        ]
+      },
+      "constraints": [
+        {
+          //constraint meta-data
+        }
+      ]
+    }
+  ]
+}
+```
+
 Now run a full `--schema` migration, where your config file references the `dumpDir` from the first step
 and the database connection references an empty database.
 
@@ -156,7 +193,9 @@ $ node rdb-migrate run --configFile <pathToConfigFile-database2> --schema
     "pass": "",
     "user": "db_user",
     "database": "db_2"
-  }
+  },
+  // optional parameter
+  "version" : 9.5
 }
 ```
 

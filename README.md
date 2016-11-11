@@ -137,8 +137,9 @@ $ node rdb-migrate dump --configFile <pathToConfigFile-database1>
 ```
 
 ```json
-// dump file structure
+// dump file structure/ template
 {
+  // table array
   "tables": [
     {
       //table meta-data
@@ -169,7 +170,13 @@ $ node rdb-migrate dump --configFile <pathToConfigFile-database1>
         }
       ]
     }
-  ]
+  ],
+  "users": [
+    {
+      //database users
+    }
+  ],
+  // sql dialect specific items: <i>e.g.</i> postgres extensions, etc.
 }
 ```
 

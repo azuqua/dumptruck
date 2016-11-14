@@ -176,7 +176,7 @@ $ node rdb-migrate dump --configFile <pathToConfigFile-database1>
       //database users
     }
   ],
-  // sql dialect specific items: <i>e.g.</i> postgres extensions, etc.
+  // sql dialect specific items: e.g. postgres extensions, etc.
 }
 ```
 

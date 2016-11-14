@@ -11,8 +11,13 @@ var config = require(path.resolve(__dirname, "../config/config.json"))
 
 describe("RDB-migrate Tests", function () {
   this.timeout(0);
-  it("RDB-migrate unit tests", function (done) {
-    require(path.resolve(__dirname, "unit"))(client);
+  it("RDB-migrate unit tests: dump", function (done) {
+    require(path.resolve(__dirname, "unit/dump-tests"))(client);
+    done();
+  })
+
+  it("RDB-migrate unit tests: content", function(done) {
+    require(path.resolve(__dirname, "unit/content-tests"))(client);
     done();
   })
 });

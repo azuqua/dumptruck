@@ -1,7 +1,7 @@
 var path = require("path")
   , Promise = require("bluebird")
   , fs = Promise.promisifyAll(require("fs"))
-  , dump = require(path.resolve(__dirname, "../../lib/dump.js"))
+  , dump = require(path.resolve(__dirname, "../../../lib/dump.js"))
   , assert = require("chai").assert;
 
 module.exports = function(client) {   
@@ -14,7 +14,7 @@ module.exports = function(client) {
           return JSON.stringify(result, null, 2);
         })
         .then(function(result) {
-          return fs.writeFileAsync(path.resolve(__dirname, "../../dump/test-dump.json"), result);
+          return fs.writeFileAsync(path.resolve(__dirname, "../../../dump/test-dump.json"), result);
         })
         .then(function(result) {
           return null;
@@ -22,18 +22,10 @@ module.exports = function(client) {
     });
 
     it("verify that dump file of db exists", function() {
-      return fs.readFileAsync(path.resolve(__dirname, '../../dump/test-dump.json'))
+      return fs.readFileAsync(path.resolve(__dirname, '../../../dump/test-dump.json'))
         .then(function(data) {
           assert(data != null, "The file should exist");
         })
-    });
-
-    it("get table metadata", function() {
-      
-    });
-    
-    it("test finding specific table", function() {
-      return dump.tableData(client, tableName)
     });
   });
 };

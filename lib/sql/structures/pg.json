@@ -31,6 +31,10 @@
   "file": "sequences_columns_join"
 },
 {
+  "name": "table",
+  "file": "table"
+},
+{
   "name": "tables",
   "file": "tables"
 },

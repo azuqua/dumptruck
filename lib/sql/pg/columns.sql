@@ -6,9 +6,7 @@ select
   is_nullable, 
   character_maximum_length, 
   numeric_precision, 
-  numeric_precision_radix, 
-  numeric_precision, 
-  numeric_precision_radix, 
+  numeric_precision_radix,  
   numeric_scale
 from information_schema.columns 
 where table_catalog = ? and table_name = ?

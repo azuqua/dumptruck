@@ -12,7 +12,8 @@ module.exports.scriptMethods = [
 
 module.exports.dialects = [
   "pg",
-  "mysql"
+  "mysql",
+  "oracledb"
 ];
 
 module.exports.dumpFormats = [

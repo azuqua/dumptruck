@@ -14,6 +14,14 @@ module.exports = function (grunt) {
       run: {
         options: {reporter: "spec", checkLeaks: true},
         src: ["test/*.js"]
+      },
+      pg: {
+        options: {reporter: "spec", checkLeaks: true},
+        src: ["test/postgres/*.js"]
+      },
+      oracledb: {
+        options: {reporter: "spec", checkLeaks: true},
+        src: ["test/oracle/*.js"]
       }
     },
 
@@ -35,5 +43,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask("default", ["lint", "test"]);
 
-  grunt.registerTask("test-dump-pg", ['mochaTest:run'])
+  grunt.registerTask("test-dump-pg", ['mochaTest:pg']);
+  grunt.registerTask("test-dump-oracle", ['mochaTest:oracledb']);
 };

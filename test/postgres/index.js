@@ -5,8 +5,8 @@ var path = require("path"),
     assert = require("chai").assert;
 
 // set the client, currently just uses a postgres client, need to abstract this for more dialects
-var config = require(path.resolve(__dirname, "../config/config.json"))
-  , clientPath = "../lib/clients/postgres"
+var config = require(path.resolve(__dirname, "../../config/config.json"))
+  , clientPath = "../../lib/clients/postgres"
   , client = require(path.resolve(__dirname, clientPath))(config);
 
 describe("RDB-migrate Tests", function () {

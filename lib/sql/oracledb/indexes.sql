@@ -1,4 +1,4 @@
 select 
   *
-  from SYS.ALL_INDEXES 
+  from all_indexes
 where table_name = ?

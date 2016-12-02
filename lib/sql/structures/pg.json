@@ -3,6 +3,10 @@
   "file": "columns"
 },
 {
+  "name": "column",
+  "file": "column"
+},
+{
   "name": "constraints",
   "file": "constraints"
 },

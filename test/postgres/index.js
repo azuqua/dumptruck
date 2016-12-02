@@ -9,14 +9,14 @@ var config = require(path.resolve(__dirname, "../../config/config.json"))
   , clientPath = "../../lib/clients/postgres"
   , client = require(path.resolve(__dirname, clientPath))(config);
 
-describe("RDB-migrate Tests", function () {
+describe("Dumptruck Postgres Tests", function () {
   this.timeout(0);
-  it("RDB-migrate unit tests: dump", function (done) {
+  it("Dumptruck unit tests: dump", function (done) {
     require(path.resolve(__dirname, "unit/dump-tests"))(client);
     done();
   })
 
-  it("RDB-migrate unit tests: content", function(done) {
+  it("Dumptruck unit tests: content", function(done) {
     require(path.resolve(__dirname, "unit/content-tests"))(client);
     done();
   })

@@ -4,11 +4,11 @@ var path = require("path")
   , dump = require(path.resolve(__dirname, "../../../../lib/dump.js"))
   , assert = require("chai").assert;
 
-module.exports = function(client) {   
-  describe('RDB-migrate Schema Tests', function() {
+module.exports = function(client) {
+  describe('Dumptruck Schema Tests', function() {
     this.timeout(0);
     it("scrape metadata from given db", function() {
-      return dump.json(client)
+      return dump().json(client)
         .then(function(result) {
           assert(result != null, "data should exist");
           return JSON.stringify(result, null, 2);

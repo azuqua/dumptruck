@@ -1,4 +1,3 @@
---data default currently excluded since longs are not supported by oracledb
 select 
   TABLE_NAME, 
   COLUMN_NAME, 
@@ -8,4 +7,4 @@ select
   DATA_SCALE,
   DATA_LENGTH 
 from all_tab_columns 
-where table_name = ? and owner = ?
+where table_name = ? and COLUMN_NAME = ? and owner = ?

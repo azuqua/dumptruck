@@ -21,7 +21,7 @@ var argv
   , client;
 
 var utils = {
- var commandline = function (_argv, cb) {
+ commandline: function (_argv, cb) {
     // default the argv values
     argv = _argv;
     client = _argv.client;
@@ -69,7 +69,7 @@ var utils = {
         break;
     }
   },
-  var library = function() {
+  library: function() {
     _dump().then(success).catch(fail);
   }
 };

@@ -64,7 +64,7 @@ var _argv = _.extend({}, argv, {
 
 // run it
 var runner = require("./index");
-runner(_argv, function (err) {
+runner.commandLine(_argv, function (err) {
   if (!err) {
     console.log("Migration task complete!");
   }

@@ -20,55 +20,61 @@ var _scriptMethods = constants.scriptMethods
 var argv
   , client;
 
-module.exports = function (_argv, cb) {
-  // default the argv values
-  argv = _argv;
-  client = _argv.client;
-  _.defaults(argv, constants.runDefaults);
+var utils = {
+ var commandline = function (_argv, cb) {
+    // default the argv values
+    argv = _argv;
+    client = _argv.client;
+    _.defaults(argv, constants.runDefaults);
 
-  var cbOrExit = function (err, cb) {
-      if (cb) {
-        cb(err);
+    var cbOrExit = function (err, cb) {
+        if (cb) {
+          cb(err);
+        }
+        else {
+          process.exit(err ? 1 : 0);
+        }
       }
-      else {
-        process.exit(err ? 1 : 0);
+      , success = function () {
+        console.log("Migration task complete!");
+        cbOrExit(null, cb);
       }
+      , fail = function (err) {
+        console.log("Error in migrate task!", err);
+        console.log(err.stack);
+        cbOrExit(err, cb);
+      };
+
+    switch (argv.command) {
+
+      case _scriptMethods[0]:
+        if (argv.schema) {
+          _loadSchema().then(success).catch(fail);
+        }
+        else {
+          _runMigration(utils.constants.directions.UP).then(success).catch(fail);
+        }
+        break;
+
+      case _scriptMethods[1]:
+        _runMigration(utils.constants.directions.DOWN).then(success).catch(fail);
+        break;
+
+      case _scriptMethods[2]:
+        _dump().then(success).catch(fail);
+        break;
+
+      default :
+        fail(new Error("Invalid command passed to rdb-migrate/index.js"));
+        break;
     }
-    , success = function () {
-      console.log("Migration task complete!");
-      cbOrExit(null, cb);
-    }
-    , fail = function (err) {
-      console.log("Error in migrate task!", err);
-      console.log(err.stack);
-      cbOrExit(err, cb);
-    };
-
-  switch (argv.command) {
-
-    case _scriptMethods[0]:
-      if (argv.schema) {
-        _loadSchema().then(success).catch(fail);
-      }
-      else {
-        _runMigration(utils.constants.directions.UP).then(success).catch(fail);
-      }
-      break;
-
-    case _scriptMethods[1]:
-      _runMigration(utils.constants.directions.DOWN).then(success).catch(fail);
-      break;
-
-    case _scriptMethods[2]:
-      _dump().then(success).catch(fail);
-      break;
-
-    default :
-      fail(new Error("Invalid command passed to rdb-migrate/index.js"));
-      break;
+  },
+  var library = function() {
+    _dump().then(success).catch(fail);
   }
 };
 
+module.exports = utils;
 /**
  *
  * @param direction

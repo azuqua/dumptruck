@@ -70,7 +70,7 @@ var utils = {
     }
   },
   library: function(config) {
-    _dump(config).then(success).catch(fail);
+    return _dump(config);
   }
 };
 

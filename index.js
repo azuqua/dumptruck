@@ -69,8 +69,8 @@ var utils = {
         break;
     }
   },
-  library: function() {
-    _dump().then(success).catch(fail);
+  library: function(config) {
+    _dump(config).then(success).catch(fail);
   }
 };
 
@@ -161,7 +161,7 @@ function _loadSchema() {
  *
  * @private
  */
-function _dump() {
+function _dump(config) {
 
   var dump = require("./lib/dump")
     , success = function (result) {
@@ -180,6 +180,10 @@ function _dump() {
       return JSON.stringify(json, null, 2);
     };
 
+  if(!!config) {
+    // this should return a dump object with the correct info
+    return dump(config);
+  }
   console.log("Starting dump task");
   switch (argv.format) {
     case _dumpFormats[0]:

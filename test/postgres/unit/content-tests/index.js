@@ -9,8 +9,8 @@ module.exports = function(client) {
   describe('Dumptruck Content Tests', function() {
     this.timeout(0);
     
-    it("get list of tables in database", function() {
-      return dump().listTables(client)
+    it("get list of tables in database", function(done) {
+      dump().listTables(client)
         .then(function(result) {
           if(_.get(result, '[0]')) {
             // table meta-data: check first table in array
@@ -33,14 +33,15 @@ module.exports = function(client) {
           } else {
             _.noop;
           }
+          done();
         })
     });
 
-    it("get table metadata of a particular table", function() {
+    it("get table metadata of a particular table", function(done) {
       var tableObject = {
         "name": "addresses"
       };
-      return dump().tableData(client, tableObject)
+      dump().tableData(client, tableObject)
         .then(function(result) {
           assert(result.schemaname != null, 'Returned Result Should Contain Schema Name');
           assert(result.table != null, 'Returned Result Should Contain Table Name');
@@ -51,31 +52,33 @@ module.exports = function(client) {
           assert(result.rowsecurity != null, 'Returned Result Should Contain Flag About Security');
           // column check
           assert(result.columns != null, 'Returned Result Lacks Associated Columns');
+          done();
         });
     });
     
-    it("get column metadata of a particular table", function() {
+    it("get column metadata of a particular table", function(done) {
       var tableObject = {
         "name": "addresses"
       };
-      return dump().tableColumnData(client, tableObject)
+      dump().tableColumnData(client, tableObject)
         .then(function(result) {
           assert(result.columns.length > 0, 'No Columns Found On Table');
           assert(result.columns[0].type != null, 'Type Not Parsed, Improperly formed Column');
           assert(result.columns[0].column != null, 'No Column Name, Failure');
           assert(result.columns[0].table != null, 'No table name, possible query failure');
           assert(result.columns[0].nullable != null, 'No information about whether column is nullable found');
+          done();
         });
     });
 
-    it("get metadata of a particular column", function() {
+    it("get metadata of a particular column", function(done) {
       var tableObject = {
         "name": "addresses"
       };
       var columnObject = {
         "column": "id"
       };
-      return dump().columnData(client, tableObject, columnObject)
+      dump().columnData(client, tableObject, columnObject)
         .then(function(result) {
           // check for properly formed normalized column data
           assert(result.length == 1, 'Returned incorrect number of rows');
@@ -84,7 +87,8 @@ module.exports = function(client) {
           assert(result[0].type != null, 'No type information found');
           assert(result[0].nullable != null, 'No nullable information found');
           assert(result[0].notNullable != null, 'No notNullable information found');
-        })
+          done();
+        });
     });
   });
 };

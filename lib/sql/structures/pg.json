@@ -43,6 +43,10 @@
   "file": "tables"
 },
 {
+  "name": "userDefinedFunctions",
+  "file": "user_defined_functions"
+},
+{
   "name": "users",
   "file": "users"
 }]

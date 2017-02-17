@@ -1,4 +1,16 @@
 [{
   "name": "database",
   "file": "database"
+},
+{
+  "name": "tables",
+  "file": "tables"
+}, 
+{
+  "name": "columns",
+  "file": "columns"
+},
+{
+  "name": "column",
+  "file": "column"
 }]

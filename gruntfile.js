@@ -22,6 +22,10 @@ module.exports = function (grunt) {
       oracledb: {
         options: {reporter: "spec", checkLeaks: true},
         src: ["test/oracle/*.js"]
+      },
+      mysql: {
+        options: {reporter: "spec", checkLeaks: true},
+        src: ["test/mysql/*.js"]
       }
     },
 
@@ -45,4 +49,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask("test-dump-pg", ['mochaTest:pg']);
   grunt.registerTask("test-dump-oracle", ['mochaTest:oracledb']);
+  grunt.registerTask("test-dump-mysql", ['mochaTest:mysql']);
 };

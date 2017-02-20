@@ -26,6 +26,10 @@ module.exports = function (grunt) {
       mysql: {
         options: {reporter: "spec", checkLeaks: true},
         src: ["test/mysql/*.js"]
+      },
+      mssql: {
+        options: {reporter: "spec", checkLeaks: true},
+        src: ["test/mssql/*.js"]
       }
     },
 
@@ -50,4 +54,5 @@ module.exports = function (grunt) {
   grunt.registerTask("test-dump-pg", ['mochaTest:pg']);
   grunt.registerTask("test-dump-oracle", ['mochaTest:oracledb']);
   grunt.registerTask("test-dump-mysql", ['mochaTest:mysql']);
+  grunt.registerTask("test-dump-mssql", ['mochaTest:mssql']);
 };

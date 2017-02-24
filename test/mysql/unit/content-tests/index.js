@@ -25,7 +25,7 @@ module.exports = function(client) {
       // };
 
       dump().tableData(client, tableObject)
-        .then(function(err, result) {
+        .then(function(result) {
           // needs tests to verify structure
           done();
         });
@@ -37,7 +37,7 @@ module.exports = function(client) {
       // }
 
       dump().tableColumnData(client, tableObject)
-        .then(function(err, result) {
+        .then(function(result) {
           // needs tests to verify structure
           done();
         });
@@ -52,7 +52,7 @@ module.exports = function(client) {
       // };
 
       dump().columnData(client, tableObject, columnObject)
-        .then(function(err, result) {
+        .then(function(result) {
           // needs tests to verify structure
           done();
         })

@@ -13,6 +13,7 @@ module.exports = function(client) {
     it("get list of tables in database", function(done) {
       dump().listTables(client)
         .then(function(result) { 
+          console.log(result);
           // needs tests to verify structure
           done();
         });
@@ -26,6 +27,7 @@ module.exports = function(client) {
 
       dump().tableData(client, tableObject)
         .then(function(result) {
+          console.log(result);
           // needs tests to verify structure
           done();
         });
@@ -38,6 +40,7 @@ module.exports = function(client) {
 
       dump().tableColumnData(client, tableObject)
         .then(function(result) {
+          console.log(result);
           // needs tests to verify structure
           done();
         });
@@ -53,6 +56,7 @@ module.exports = function(client) {
 
       dump().columnData(client, tableObject, columnObject)
         .then(function(result) {
+          console.log(result);
           // needs tests to verify structure
           done();
         })

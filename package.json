@@ -1,6 +1,6 @@
 {
   "name": "dumptruck",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A relational database migration management framework.",
   "main": "index.js",
   "scripts": {

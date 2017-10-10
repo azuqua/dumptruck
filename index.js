@@ -20,7 +20,7 @@ var _scriptMethods = constants.scriptMethods
 var argv
   , client;
 
-var utils = {
+var _exports = {
  commandline: function (_argv, cb) {
     // default the argv values
     argv = _argv;
@@ -74,7 +74,7 @@ var utils = {
   }
 };
 
-module.exports = utils;
+module.exports = _exports;
 /**
  *
  * @param direction
@@ -94,7 +94,11 @@ function _runMigration(direction) {
     }
     , runMigrationFile = function (file) {
       console.log("Compiling migration", file);
-      require(path.join(__dirname, "migrations", file))(m);
+      try {
+        require(path.join(__dirname, "migrations", file))(m);
+      } catch (e) {
+        console.log("Migration file %s is corrupt, skipping...", file);
+      }
     }
     , compileMigration = function (files) {
       console.log("Compiling migration for %s files", files.length);
@@ -180,11 +184,11 @@ function _dump(config) {
       return JSON.stringify(json, null, 2);
     };
 
-  if(!!config) {
+  console.log("Starting dump task");
+  //if(!!config) {
     // this should return a dump object with the correct info
     return dump(config);
-  }
-  console.log("Starting dump task");
+  //}
   switch (argv.format) {
     case _dumpFormats[0]:
       return dump.json(client).then(stringify).then(writeDump).then(success).catch(fail);

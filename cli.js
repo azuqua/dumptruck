@@ -12,8 +12,9 @@ var _scriptMethods = constants.scriptMethods
 // set up the command line interface
 var argv = require("yargs")
   .usage("Usage: $0 $1 --config [string] --dialect [string] --format [string] --out [relative path] --schema --bdr --dry")
-  .demand([1])
-  .describe(1, _scriptMethods.join("|"))
+  .demandCommand(1, "You need at least one command before moving on")
+  .command("run", "run migrations")
+  .command("dump", "create dump file from database")
   .describe("config", "config: specify config path")
   .describe("dialect", "migration: choose desired knexjs dialect - " + _dialects.join("|"))
   .describe("schema", "migrate: perform migration from dump.json file - true|false")
@@ -64,7 +65,7 @@ var _argv = _.extend({}, argv, {
 
 // run it
 var runner = require("./index");
-runner.commandLine(_argv, function (err) {
+runner.commandline(_argv, function (err) {
   if (!err) {
     console.log("Migration task complete!");
   }
